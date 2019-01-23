@@ -76,6 +76,11 @@ var parameterize = function(input, params) {
 
   // Create clone function
   var clone = function(value) {
+    // Don't parameterize null or undefined
+    if (value === null || value === undefined) {
+      return value;
+    }
+
     // Parameterized strings
     if (typeof(value) === 'string') {
       return parameterizeString(value);
